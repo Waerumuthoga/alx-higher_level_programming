@@ -36,7 +36,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get the height of the new Rectangle"""
+        """Get the height of the Rectangle"""
         return self.__height
 
     @height.setter
@@ -66,9 +66,9 @@ class Rectangle:
             TypeError: if either rect_1 or rect_2 is not a Rectangle
         """
         if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of a rectangle")
+            raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of a rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1.area() >= rect_2.area():
             return (rect_1)
         return (rect_2)
