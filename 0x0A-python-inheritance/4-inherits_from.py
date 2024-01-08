@@ -9,8 +9,8 @@ def inherits_from(obj, a_class):
         a_class (type): the class to match the type of object to
     Returns:
         If object is an inherited instance of a_class - True
-        else - False.
+        Otherwise - False.
     """
-    if isinstance(type(obj), a_class) and type(obj) != a_class:
+    if issubclass(type(obj), a_class) and type(obj) != a_class:
         return True
     return False
