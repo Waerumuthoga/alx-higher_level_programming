@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """fetches https://alx-intranet.hbtn.io/status"""
 import urllib.request as req
 
