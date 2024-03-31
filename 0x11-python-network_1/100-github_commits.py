@@ -5,18 +5,19 @@
             ./100-github_commits.py <repo name> <owner>
 """
 import requests
-from sys import argv
+import sys
+
 
 if __name__ == "__main__":
-    repo = argv[1]
-    owner = argv[2]
-    url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
-
-    r = requests.get(url)
-    commits = r.json()
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(
+        sys.argv[2], sys.argv[1])
+    header = {"Accept": "application/vnd.github.v3+json"}
+    r = requests.get(url, headers=header)
     try:
+        json = r.json()
         for i in range(10):
-            print("{}: {}".format(commits[i].get("sha"),
-                  commits[i].get("commit").get("author").get("name")))
-    except IndexError:
-        pass
+            print("{}: {}".format(
+                json[i].get('sha'),
+                json[i].get('commit').get('author').get('name')))
+    except ValueError:
+        print("Not a valid JSON")
